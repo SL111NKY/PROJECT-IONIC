@@ -21,8 +21,8 @@
       <ion-col>
         <ion-list>
           <ion-item>
-            <ion-select aria-label="cat" placeholder="Select category" multiple="true" interface="popover" toggle-icon="add" expanded-icon="remove">
-              <ion-select-option *ngFor="let item of items;let i = index" [value]="item.category" >{{item.category}}</ion-select-option>
+            <ion-select (ionChange)="filterItemsByCategory()" aria-label="cat" placeholder="Select category" multiple="true" interface="popover" toggle-icon="add" expanded-icon="remove" [(ngModel)]="selectedcat">
+              <ion-select-option *ngFor="let item of cats;let i = index" [value]="item" >{{item}}</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-list>
@@ -31,7 +31,7 @@
         <ion-list>
           <ion-item>
             <ion-select aria-label="cat" placeholder="Select item" multiple="true" interface="popover" toggle-icon="add" expanded-icon="remove">
-              <ion-select-option *ngFor="let item of items;let i = index" [value]="item.name" >{{item.name}}</ion-select-option>
+              <ion-select-option *ngFor="let item of filteredItems;let i = index" [value]="item.name" >{{item.name}}</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-list>

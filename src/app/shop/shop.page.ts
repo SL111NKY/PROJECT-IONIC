@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ShopPage implements OnInit {
   public cats:Array<String> = ["Alchemie","Waffen","Rüstungen","Ketten","Schuhe","Armbänder","Helme"];
   public toggleOn:boolean = true;
-  public items:Array<any> =  [
+  public items =  [
     { name: 'Giftschwert', category: 'Waffen', desc:'Testbeschreibung', imgpath:'../assets/images/product.png', price: 10 },
     { name: 'Schwarzstahlpanzer', category: 'Rüstungen', desc:'Testbeschreibung', imgpath:'../assets/images/product.png', price: 20 },
     { name: 'Himmelstraenenhalskette', category: 'Ketten', desc:'Testbeschreibung', imgpath:'../assets/images/product.png', price: 30 },
@@ -20,10 +20,29 @@ export class ShopPage implements OnInit {
     { name: 'Schwarze Kleidung', category: 'Rüstungen', desc:'Testbeschreibung', imgpath:'../assets/images/product.png', price:0},
     { name: 'Seelengürtel', category: 'Gürtel', desc:'Testbeschreibung', imgpath:'../assets/images/product.png', price:0},
   ];
-  public selectcat:string | null = "";
-  constructor() { }
+  public selectedcat:Array<any> = [];
+  public filteredItems:any = [];
+  constructor() { 
+    
+  }
+
+  filterItemsByCategory() {
+      if(this.selectedcat == null || this.selectedcat.length == 0 || this.selectedcat == undefined) {
+        this.filteredItems = this.items;
+      }
+      else {
+        this.filteredItems = this.items.filter(value =>{
+         return this.selectedcat.includes(value.category);
+        }) 
+        console.log(this.filteredItems);
+      }
+    // console.log(this.filteredItems);
+
+  }
+
 
   ngOnInit() {
+    this.filteredItems = this.items;
   }
 
 }
