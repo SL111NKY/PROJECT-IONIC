@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Shop</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col class="ion-text-center">
+          CATEGORY
+      </ion-col>
+      <ion-col class="ion-text-center">
+          ITEM
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-select aria-label="cat" placeholder="Select category" multiple="true" interface="popover" toggle-icon="add" expanded-icon="remove">
+              <ion-select-option *ngFor="let item of items;let i = index" [value]="item.category" >{{item.category}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-select aria-label="cat" placeholder="Select item" multiple="true" interface="popover" toggle-icon="add" expanded-icon="remove">
+              <ion-select-option *ngFor="let item of items;let i = index" [value]="item.name" >{{item.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2" *ngFor="let item of items;let i = index">
+        <ion-card >
+          <img alt="ITEM" src="{{item.imgpath}}" />
+          <ion-card-header>
+            <ion-card-title>{{item.name}}</ion-card-title>
+            <ion-card-subtitle> >> {{item.category}}</ion-card-subtitle>
+            <ion-card-subtitle>{{item.price}} €</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            {{item.desc}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <!--
+  <ion-card *ngFor="let cat of cats;let i = index">
+    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+    <ion-card-header>
+      <ion-card-title>{{i+1}}. {{cat}}</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Here's a small text description for the card content. Nothing more, nothing less.
+    </ion-card-content>
+  </ion-card>
+  
+  
+  
+  <h1>
+    <ion-button (click)="toggleOn = !toggleOn">Toggle Greetings</ion-button>
+  </h1>
+  <div *ngIf="!toggleOn; else elseBlock">
+  <h2>Hello</h2>
+  <p>Good morning to you</p>
+  </div>
+  <ng-template #elseBlock>No greeting, Lagbaja nothing for you.</ng-template>
+  <hr>
+  <p>Today is Friday and this is a dummy text element to make you feel better</p>
+  <p>Understanding the ngIf directive with the else clause</p>-->
+</ion-content>
+<app-footer></app-footer>

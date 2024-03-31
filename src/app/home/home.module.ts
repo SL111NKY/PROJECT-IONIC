@@ -5,10 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import { SharedmoduleModule } from '../sharedmodule/sharedmodule.module';
 
 
 @NgModule({
   imports: [
+    SharedmoduleModule,
     CommonModule,
     FormsModule,
     IonicModule,
