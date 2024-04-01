@@ -30,7 +30,7 @@
       <ion-col>
         <ion-list>
           <ion-item>
-            <ion-select aria-label="cat" placeholder="Select item" multiple="true" interface="popover" toggle-icon="add" expanded-icon="remove">
+            <ion-select (ionChange)="filterItemsByName()" aria-label="cat" placeholder="Select item" multiple="true" interface="popover" toggle-icon="add" expanded-icon="remove" [(ngModel)]="selecteditem">
               <ion-select-option *ngFor="let item of filteredItems;let i = index" [value]="item.name" >{{item.name}}</ion-select-option>
             </ion-select>
           </ion-item>
@@ -39,11 +39,11 @@
       <ion-col></ion-col>
     </ion-row>
   </ion-grid>
-  
-  
+
+
   <ion-grid>
     <ion-row>
-      <ion-col size="2" *ngFor="let item of items;let i = index">
+      <ion-col size="2" *ngFor="let item of outputitems;let i = index">
         <ion-card >
           <img alt="ITEM" src="{{item.imgpath}}" />
           <ion-card-header>
@@ -58,6 +58,8 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+
   
   <!--
   <ion-card *ngFor="let cat of cats;let i = index">
