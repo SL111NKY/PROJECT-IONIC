@@ -1,18 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <img alt="ITEM" src="../../assets/logo/m2logo.png" 
-              height="50em" slot="start" />
-    <ion-buttons slot="end">
-      <ion-button [routerLink]="['/home']">Home </ion-button>
-    </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button [routerLink]="['/home']">Account </ion-button>
-    </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button [routerLink]="['/shop']">Shop </ion-button>
-    </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button [routerLink]="['/login']">Logout </ion-button>
-    </ion-buttons>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <a [routerLink]="['/home']"><img alt="ITEM" src="../../assets/logo/m2logo.png" height="50em" style="margin-left:10em;"/></a>   
+         </ion-col>
+         <ion-col>
+          <ion-buttons style="margin-left:15em;padding-top:1%;">
+            <ion-button [routerLink]="['/home']">Account </ion-button>          
+            <ion-button [routerLink]="['/shop']">Shop </ion-button>    
+            <ion-button [routerLink]="['/login']">Logout </ion-button>
+          </ion-buttons>
+         </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
-  </ion-header>
+</ion-header>

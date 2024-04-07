@@ -17,6 +17,8 @@ import { SharedmoduleModule } from '../sharedmodule/sharedmodule.module';
     IonicModule,
     ShopPageRoutingModule
   ],
-  declarations: [ShopPage]
+  declarations: [ShopPage],
+  exports:[ShopPage]
 })
-export class ShopPageModule {}
+export class ShopPageModule {
+}
