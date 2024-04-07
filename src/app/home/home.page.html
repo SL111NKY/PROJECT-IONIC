@@ -1,15 +1,10 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title color="dark" class="ion-text-center">
-      Home
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-navbar></app-navbar>
+
 <ion-content [fullscreen]="true">
 
   <div id="container">
     <strong>Welcome back, {{wbUsername}}.</strong>
-    <p>Start selling <a [routerLink]="['/shop']">Items</a></p>
+    <p>Start exploring <a [routerLink]="['/shop']">Items</a></p>
   </div>
 </ion-content>
 <app-footer></app-footer>
