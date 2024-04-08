@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { DBService } from '../db.service';
+import { doc, setDoc } from "firebase/firestore"; 
+
 
 @Component({
   selector: 'app-home',
@@ -6,6 +11,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+  constructor(private dbservice: DBService) {}
+
+  ngOnInit() {
+    this.wbUsername = localStorage.getItem('username');
+    this.filteredItems = this.items;
+    this.outputitems = this.items;
+  }
+
+
+
+
+ async addItem() {
+  console.log("wird ausgeführt");
+    // Add a new document in collection "cities"
+       await setDoc(doc(this.dbservice.db,"test","1"), {
+        name: "Name",
+        category: "",
+        price: 30
+      });
+  }
+
+
+
+
+
   public wbUsername:string | null = 'Unknown';
   isModalOpen1 = false;
   isModalOpen2 = false;
@@ -78,12 +109,6 @@ export class HomePage implements OnInit {
     })
   }
   }
-  constructor() {}
 
-  ngOnInit() {
-    this.wbUsername = localStorage.getItem('username');
-    this.filteredItems = this.items;
-    this.outputitems = this.items;
-  }
 
 }
