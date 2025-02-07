@@ -1,0 +1,71 @@
+.hithere {
+    animation: hithere 2s ease infinite;
+  }
+  @keyframes hithere {
+    30% { transform: scale(1.2); }
+    40%, 60% { transform: rotate(-20deg) scale(1.2); }
+    50% { transform: rotate(20deg) scale(1.2); }
+    70% { transform: rotate(0deg) scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  .sp{
+    position: absolute;
+    transition: 0.5s; 
+  }
+  .sp-t{
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 2px;
+    background:linear-gradient( to left , transparent,#57AAB4,#57AAB4);
+    animation: anim2 2s linear infinite;
+    transform: translateY(-300%);
+    animation-delay: 0.8s;
+  }
+  .sp-r{
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    height: 200px;
+    background:linear-gradient( to top , transparent,#57AAB4 ,#57AAB4);
+    animation: anim1 2s linear infinite;
+    animation-delay: 0s;
+  }
+  .sp-b{
+    right: 0;
+    bottom: 0;
+    width: 200px;
+    height: 2px;
+    background:linear-gradient( to left , transparent,#57AAB4,#57AAB4);
+    animation: anim2 2s linear infinite;
+  }
+  .sp-l{
+    left: 0;
+    top:0;
+    width: 2px;
+    height: 200px;
+    background:linear-gradient( to top , transparent,#57AAB4,#57AAB4);
+    animation: anim1 2s linear infinite;
+    animation-delay: 1s;
+    transform: translateX(-300%);
+  }
+  @keyframes anim1 {
+      0%{
+          transform: translateY(300%);
+          
+      }
+      100%{
+          transform: translateY(-300%);
+          
+      }
+  }
+  @keyframes anim2 {
+      0%{
+          transform: translateX(300%);
+      }
+      100%{
+          transform: translateX(-300%);
+          
+      }
+  }
