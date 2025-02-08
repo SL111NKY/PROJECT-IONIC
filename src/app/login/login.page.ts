@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Component, inject, Inject, INJECTOR, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+
 
 
 @Component({
@@ -10,27 +13,22 @@ import { Router } from '@angular/router';
 
 
 export class LoginPage implements OnInit {
-  public pw:string | null = "";
-  public id:string | null = "";
 
-  public auth() {
-  // console.log("Login pressed");
-   if(this.id && this.pw){
-    //console.log("Input vorhanden");
-    localStorage.setItem('username',this.id);
-    this.router.navigate(['/home']);
-   }
-   else {
-   // console.log("KEINE DATEN GEFUELLT");
-   }
-  }
+  user: any = null;
+  clientId = '545762027595-83hnm2u56k7qoq04mg051jfdbm9n1sps.apps.googleusercontent.com'; // Ersetze mit deiner Client-ID
 
-  constructor(public router: Router) { 
-
-  }
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
+    this.authService.user$.subscribe(user => {
+      this.user = user;
+    });
 
+    this.authService.initializeGoogleSignIn(this.clientId);
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }

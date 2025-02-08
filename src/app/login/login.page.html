@@ -9,24 +9,28 @@
     <ion-row>
       <ion-col></ion-col><!--EMPTY-->
       <ion-col size="auto">     
-        <ion-card>
+        <ion-card id="logincard">
           <ion-card-header>
             <ion-card-title class="ion-text-center">
-              <img class="hithere" alt="ITEM" src="../../assets/logo/logo.png" style="width:10%;"/>
+              <img class="hithere" alt="ITEM" src="../../assets/logo/logo.png" style="width:30%;"/>
             </ion-card-title>
             <ion-card-subtitle></ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
-            <ion-input label="Username" label-placement="floating" fill="outline" placeholder="" [(ngModel)]="id"></ion-input>
-            <ion-row style="height: 1rem"></ion-row> <!--USED FOR SPACING-->
-            <ion-input label="Password" label-placement="floating" fill="outline" placeholder="" [(ngModel)]="pw" type="password">
-              <ion-icon slot="start" name="lock-closed" aria-hidden="true"></ion-icon>
-              <ion-button fill="clear" slot="end" aria-label="Show/hide">
-                <ion-icon slot="icon-only" name="eye" aria-hidden="true"></ion-icon>
-              </ion-button>
-          </ion-input>
+
           <ion-row style="height: 2rem"></ion-row> <!--USED FOR SPACING-->
-          <ion-button (click)="auth();" fill="outline" expand="block">Login</ion-button>
+
+
+
+
+          <ion-button *ngIf="!user" (click)="ngOnInit()">🔑 Mit Google anmelden</ion-button>
+          <ion-button *ngIf="user" color="danger" (click)="logout()">🚪 Logout</ion-button>
+
+
+
+
+
+
           </ion-card-content>
           <span class="sp sp-t"></span>
           <span class="sp sp-r"></span>
@@ -42,4 +46,4 @@
     </ion-row>
   </ion-grid>
 </ion-content>
-<app-footer></app-footer>
+<!--<app-footer></app-footer>-->
