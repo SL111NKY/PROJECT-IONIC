@@ -22,7 +22,7 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  fetchData(): Observable<CANNA> {
+  fetchData(): Observable<any> {
     // Definiere die Header für die Anfrage
     const headers = new HttpHeaders({
       'accept': 'application/json, text/plain, */*',
